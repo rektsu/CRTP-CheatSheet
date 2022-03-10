@@ -29,3 +29,11 @@
   (Get-DomainOU -Identity StudentMachines).gplink
   Get-DomainGPO -Identity "{3E04167E-C2B6-4A9A-8FB7-C811158DC97C}"
   
+# Learning Objective 3
+
+- List ACL for the Domain Admins Group
+  Get-DomainObjectAcl -Identity "Domain Admins" -ResolveGUIDs -Verbose
+  
+- All modify rights/permissions for the studentx
+  Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "studentx"}
+  Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "RDPUsers"}
