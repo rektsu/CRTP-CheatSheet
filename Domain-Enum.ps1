@@ -74,3 +74,5 @@ Find-InterestingDomainACL -ResolveGUIDs
 # Get ACLs associated with the specified path
 Get-PathAcl -Path "\\dcorp-dc.dollarcorp.moneycorp.local\sysvol"
 
+# TRUSTS
+Get-DomainTrust -domain <domain>
