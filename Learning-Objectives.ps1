@@ -37,3 +37,20 @@
 - All modify rights/permissions for the studentx
   Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "studentx"}
   Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "RDPUsers"}
+  
+# Learning Objective 4
+
+- Enumerate all domains in the moneycorp.local forest
+  Get-ForestDomain -Forest moneycorp.local -Verbose
+  
+- Map the trusts of the dollarcorp.moneycorp.local domain
+  Get-DomainTrust -Domain dollarcorp.moneycorp.local
+  
+- Map external trusts in moneycorp.local forest
+  Get-ForestDomain | %{Get-DomainTrust -Domain $_.Name}
+  (External TRUSTS -> TrustAttributes = "FILTER_SIDS")
+  Get-ForestDomain | %{Get-DomainTrust -Domain $_.Name} | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
+ 
+- Identify external trusts of dollarcorp domain. Can you enumerate trusts for a trusting forest?
+  Get-DomainTrust | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
+  Get-ForestDomain -Forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
