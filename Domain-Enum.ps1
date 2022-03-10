@@ -53,6 +53,16 @@ Invoke-FileFinder -verbose
 # FIND ALL FILESERVERS OF THE DOMAIN
 Get-NetFileServer
 
+# GPO ENUM
+Get-DomainGPO
+Get-DomainGPO | select displayname
+Get-DomainGPO -domain <domain> -ComputerIdentity <dcorp-student575>
 
+# OU ENUM
+Get-DomainOU
+Get-DomainOU | select name
+Get-DomainOU -Identity <name>
+
+// Get-DomainGPO -Identity "{3E04167E-C2B6-4A9A-8FB7-C811158DC97C}"
 
 
