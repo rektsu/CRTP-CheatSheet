@@ -49,7 +49,7 @@ winPEASx64.exe
   Check StartName: "LocalSystem" -> Runs as Admin in the SYSTEM
   Check CanRestart: "True" -> Can Restart
   
-  Check AbuseFunction: "InvokeServiceAbuse -Name 'AbyssWebServer'
+  Check AbuseFunction: "Invoke-ServiceAbuse -Name 'AbyssWebServer'
   help InvokeServiceAbuse -examples
   
   AFTER GETING LOCAL ADMIN BECAUSE OF ABUSE FUNCTION:
