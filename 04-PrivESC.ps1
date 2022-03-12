@@ -52,7 +52,9 @@ winPEASx64.exe
   Check AbuseFunction: "Invoke-ServiceAbuse -Name 'AbyssWebServer'
   help InvokeServiceAbuse -examples
   
-  AFTER GETING LOCAL ADMIN BECAUSE OF ABUSE FUNCTION:
+  AFTER GETING LOCAL ADMIN BECAUSE OF ABUSE FUNCTION: -> IMPORTANT TO LOGOFF AND LOGON AGAIN <-
+  
+  
   Get admin CMD
   InvisiShell
   Import Find-PSRemotingLocalAdminAccess.ps1
