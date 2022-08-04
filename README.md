@@ -1,8 +1,10 @@
 # CRTP-CheatSheet
-Useful commands cheatsheet for CRTP exam
+Useful commands cheatsheet for CRTP labs
 
 
-# KEEP IN MIND
-ALWAYS RUN INVISISHELL -> Find-PSRemotingLocalAdminAccess.ps1 AFTER OVERPASSTHEHASH OR GETTING A NEW MACHINE/USER
+# Usefull Tips
 
-THIS WAY WE MAY GET POSSIBLE SESSIONS WHERE THE USER HAS LOCAL ADMIN ACCESS. FOR EXAMPLE ADMINSRV FROM DCORP-ADMINSRV HAVING LOCAL ADMIN IN DCORP-MGMT
+Rubeus.exe may crash if running from an InvisiShell
+Using BloodHound GUI from your own machine and use SharpHound in victim machine to save time of setting up BloodHound
+Reenumerate properly after pwning a machine
+Marking as powned a machine in BloodHound is super usefull
